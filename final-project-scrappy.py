@@ -3,7 +3,8 @@ print("You are stuck in an infinite loop! You need to find your way out! Wait! \
 I smell a break around here! Go find it before you go insane in this horrible\
  place!You can start by choosing one of these three doors i guess?")
 import turtle
-           
+
+
 #hello team tbd
 
 def riddle1():
@@ -93,7 +94,24 @@ def room_3(u_door):
     elif u_door== 3:
         print(' oh no its a trap')
         chose_door(room_0)
+boom=60
 
+timer = turtle.Turtle()
+timer.penup()
+timer.hideturtle()
+timer.goto(0, 300)
+
+import time
+while boom >0:
+    timer.write(str(boom), move = True, align = "center", font = ("Arial", 20, "normal"))
+    
+    time.sleep(1)
+    boom -= 1
+    timer.clear()
+    timer.goto(0, 300)
+    if boom == 0:
+        print("Your time is up kid, go back to bed")
+        quit()          
 '''
 def draw_doors():
     global u_door
@@ -131,3 +149,4 @@ def fun_door3(x, y):
                      
 riddle1()                    
 chose_door(room_0)
+
