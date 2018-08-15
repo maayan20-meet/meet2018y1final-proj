@@ -1,5 +1,9 @@
+
 import turtle
 import time
+
+roomT = turtle.clone()
+room_count = 0
 u_door = None
 n = 100
 print("You are stuck in an infinite loop! You need to find your way out! Wait! \
@@ -67,13 +71,22 @@ def riddle4():
 def chose_door():
     global u_door
     global current_room
+    global room_count
+
+    
+    
+    roomT.clear()
+    roomT.penup()
+    roomT.hideturtle()
+    roomT.goto(0,350)
+    roomT.write('Room: ' + str(room_count), move = True, align = 'center', font=("Times New Roman",30,"normal"))
+    
+
+
     
     draw_doors()
     
-    #door1.onclick(fun_door1)
-    #door2.onclick(fun_door2)
-    #door3.onclick(fun_door3)
-    #u_door = int(input("What number of door would you like to open?"))
+
     #(current_room)(u_door)
         
 def room_0(u_door):
@@ -81,14 +94,17 @@ def room_0(u_door):
     if u_door == 1:
         print('You made it!')
         current_room = room_1
+        room_count += 1
         chose_door()
     elif u_door == 2:
         print('oh no its a trap')
         current_room = room_0
+        room_count = 0
         chose_door()
     elif u_door == 3:
         print('oh no its a trap')
         current_room = room_0
+        room_count = 0
         chose_door()
 
 def room_1(u_door):
@@ -96,14 +112,17 @@ def room_1(u_door):
     if u_door == 1:
         print('oh no its a trap')
         current_room = room_0
+        room_count = 0
         chose_door()
     elif u_door == 2:
         print('You made it!')
         current_room = room_2
+        room_count += 1
         chose_door()
     elif u_door == 3: 
         print('oh no its a trap')
         current_room = room_0
+        room_count = 0
         chose_door()
 
 def room_2(u_door):
@@ -111,10 +130,12 @@ def room_2(u_door):
     if u_door == 1:
         print('oh no its a trap')
         current_room = room_0
+        room_count = 0
         chose_door()
     elif u_door == 2:
         print('You made it!')
         current_room = room_3
+        room_count += 1
         chose_door
     elif u_door == 3:
         print('oh no its a trap')
@@ -124,13 +145,16 @@ def room_3(u_door):
     if u_door == 1:
         print('oh no its a trap')
         current_room = room_0
+        room_count = 0
         chose_door()
     elif u_door == 2:
         print('you made it. You have broken the loop!')
+        room_count += 1
         quit()
     elif u_door== 3:
         print(' oh no its a trap')
         current_room = room_0
+        room_count = 0
         chose_door()
 
 
@@ -176,6 +200,7 @@ def draw_doors():
 def enter_door():
     print(u_door)
     (current_room)(u_door)
+    
 
 
     
