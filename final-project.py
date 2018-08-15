@@ -147,9 +147,9 @@ def draw_doors():
     door2.penup()
     door3.penup()
 
-    door1.speed(0)
-    door2.speed(0)
-    door3.speed(0)
+    door1.speed(-1)
+    door2.speed(-1)
+    door3.speed(-1)
     
     screen.addshape('door1.gif')
     door1.shape('door1.gif')
@@ -167,6 +167,22 @@ def draw_doors():
     door1.onclick(fun_door1)
     door2.onclick(fun_door2)
     door3.onclick(fun_door3)
+'''
+def change_doors():
+    
+    
+    screen.addshape('door4.gif')
+    door1.shape('door4.gif')
+    screen.addshape('door5.gif')
+    door2.shape('door5.gif')
+    screen.addshape('door6.gif')
+    door3.shape('door6.gif')
+
+    
+   ''' 
+    
+
+    
 
     
     #while not door_clicked:
@@ -208,5 +224,3 @@ chose_door()
 #door2.onclick(fun_door2)
 #door3.onclick(fun_door3)
 turtle.mainloop()
-
-
