@@ -1,26 +1,5 @@
 import turtle
 import time
-<<<<<<< HEAD
-print("You are stuck in an infinite loop! You need to find your way out! Wait! \
-I smell a break around here! Go find it before you go insane in this horrible\
- place!You can start by choosing one of these three doors i guess?")
-
-u_door = None
-
-
-def countdown(n) :
-    while n > 0:
-        print (n)
-        n = n - 1
-    if n ==0:
-        print('BLAST OFF!')
-countdown(3)
-        
-
-
-
-
-=======
 u_door = None
 n = 100
 print("You are stuck in an infinite loop! You need to find your way out! Wait! \
@@ -28,7 +7,6 @@ I smell a break around here! Go find it before you go insane in this horrible\
  place!You can start by choosing one of these three doors i guess?")
 screen = turtle.Screen()
 clock = turtle.Turtle()        
->>>>>>> 56486057cc3a1334561ab9fd77a63beaee27bed3
 #hello team tbd
 def timer():
     global n
@@ -57,7 +35,7 @@ def riddle1():
         print('HINT: in room 1 the best door is 1+1-1+1-1')
     else:
         print('wrong! better luck next time')
-    
+
 def riddle2():
     print("how many sea creaturs die due to plastic polution each year?")
     print("1 =100,000, 2 =500,000 , 3=750,000 , 4 =1,000,000")
@@ -77,11 +55,11 @@ def riddle3():
         print('wrong! better luck next time')
 
 def riddle4():
-    print("how many plastic water bottles used in year??")
+    print("how many plastic water buttles used in year??")
     print("1 =50 billion,  2 =20 billion , 3=billion , 4 =1,000,000")
     user_answer= int(input("what number would you like to choose?"))
     if user_answer == 1:
-        print("HINT:In room number 4 doors 2997/999 and 1000-999")
+       print("HINT:In room number 4 doors 2997/999 and 1000-999")
     else:
         print('wrong! better luck next time')
         ###############################################################
@@ -155,13 +133,6 @@ def room_3(u_door):
         current_room = room_0
         chose_door()
 
-<<<<<<< HEAD
-      
-'''
-def draw_doors():
-    global u_door
-=======
->>>>>>> 56486057cc3a1334561ab9fd77a63beaee27bed3
 
 def draw_doors():
     global u_door, screen
@@ -176,9 +147,9 @@ def draw_doors():
     door2.penup()
     door3.penup()
 
-    door1.speed(0)
-    door2.speed(0)
-    door3.speed(0)
+    door1.speed(-1)
+    door2.speed(-1)
+    door3.speed(-1)
     
     screen.addshape('door1.gif')
     door1.shape('door1.gif')
@@ -196,6 +167,22 @@ def draw_doors():
     door1.onclick(fun_door1)
     door2.onclick(fun_door2)
     door3.onclick(fun_door3)
+'''
+def change_doors():
+    
+    
+    screen.addshape('door4.gif')
+    door1.shape('door4.gif')
+    screen.addshape('door5.gif')
+    door2.shape('door5.gif')
+    screen.addshape('door6.gif')
+    door3.shape('door6.gif')
+
+    
+   ''' 
+    
+
+    
 
     
     #while not door_clicked:
@@ -226,14 +213,6 @@ def fun_door2(x, y):
 def fun_door3(x, y):
     global u_door, door_clicked
     u_door = 3
-<<<<<<< HEAD
-'''              
-                     
-                                          
-                     
-riddle1()                    
-chose_door(room_0)
-=======
     door_clicked = True
     enter_door()
              
@@ -245,6 +224,3 @@ chose_door()
 #door2.onclick(fun_door2)
 #door3.onclick(fun_door3)
 turtle.mainloop()
-
->>>>>>> 56486057cc3a1334561ab9fd77a63beaee27bed3
-
