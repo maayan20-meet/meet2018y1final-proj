@@ -1,8 +1,22 @@
-u_door = None
+import turtle
+import time
 print("You are stuck in an infinite loop! You need to find your way out! Wait! \
 I smell a break around here! Go find it before you go insane in this horrible\
  place!You can start by choosing one of these three doors i guess?")
-import turtle
+
+u_door = None
+
+
+def countdown(n) :
+    while n > 0:
+        print (n)
+        n = n - 1
+    if n ==0:
+        print('BLAST OFF!')
+countdown(3)
+        
+
+
 
 
 #hello team tbd
@@ -15,7 +29,7 @@ def riddle1():
         print('HINT: in room 1 the best door is 1+1-1+1-1')
     else:
         print('wrong! better luck next time')
-
+    
 def riddle2():
     print("how many sea creaturs die due to plastic polution each year?")
     print("1 =100,000, 2 =500,000 , 3=750,000 , 4 =1,000,000")
@@ -35,11 +49,11 @@ def riddle3():
         print('wrong! better luck next time')
 
 def riddle4():
-    print("how many plastic water buttles used in year??")
+    print("how many plastic water bottles used in year??")
     print("1 =50 billion,  2 =20 billion , 3=billion , 4 =1,000,000")
     user_answer= int(input("what number would you like to choose?"))
     if user_answer == 1:
-       print("HINT:In room number 4 doors 2997/999 and 1000-999")
+        print("HINT:In room number 4 doors 2997/999 and 1000-999")
     else:
         print('wrong! better luck next time')
         ###############################################################
@@ -94,24 +108,8 @@ def room_3(u_door):
     elif u_door== 3:
         print(' oh no its a trap')
         chose_door(room_0)
-boom=60
 
-timer = turtle.Turtle()
-timer.penup()
-timer.hideturtle()
-timer.goto(0, 300)
-
-import time
-while boom >0:
-    timer.write(str(boom), move = True, align = "center", font = ("Arial", 20, "normal"))
-    
-    time.sleep(1)
-    boom -= 1
-    timer.clear()
-    timer.goto(0, 300)
-    if boom == 0:
-        print("Your time is up kid, go back to bed")
-        quit()          
+      
 '''
 def draw_doors():
     global u_door
