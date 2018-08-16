@@ -1,48 +1,22 @@
 
-
 import turtle
 import time
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-print("You are stuck in an infinite loop! You need to find your way out! Wait! \
-I smell a break around here! Go find it before you go insane in this horrible\
- place!You can start by choosing one of these three doors i guess?")
-
-u_door = None
-
-
-def countdown(n) :
-    while n > 0:
-        print (n)
-        n = n - 1
-    if n ==0:
-        print('BLAST OFF!')
-countdown(3)
-        
-
-
-
-
-=======
-=======
-=======
 import random
->>>>>>> 972b55c11e957423059be162272ee2ce4d157168
+riddle2_asked = False
+riddle3_asked = False
+riddle4_asked = False
+count_riddle = 0
 
-
-count_riddle = 1
-roomT = turtle.clone()
 room_count = 0
->>>>>>> 95fa7a37ccfb5885b7af0717eeb080190d1470e4
 u_door = None
 n = 100
+
+riddle1_asked = False
 print("You are stuck in an infinite loop! You need to find your way out! Wait! \
-I smell a break around here! Go find it before you go insane in this horrible\
- place!You can start by choosing one of these three doors i guess?")
+I smell a break around here! Go find it before your laptop runs out of battery!\
+Start by answering this riddle I guess?")
 screen = turtle.Screen()
 clock = turtle.Turtle()        
->>>>>>> 56486057cc3a1334561ab9fd77a63beaee27bed3
 #hello team tbd
 def timer():
     global n
@@ -61,6 +35,12 @@ def timer():
 #door1 = turtle.clone()
 #door2 = turtle.clone()
 #door3 = turtle.clone()
+riddle1_answer = ["Wrong answer!, no hint for you!  now, can you move forward by chosing one of this doors?", "Wrong answer!, no hint for you!  now, can you move forward by chosing one of this doors?", "Oh! You made it! Here's a hint!: In room number 0 the best door is 1+1-1+1-1=x  now, can you move forward by chosing one of this doors?", "Wrong answer!, no hint for you!  now, can you move forward by chosing one of this doors?"]
+riddle2_answer = ["Wrong answer!", "Wrong answer!", "Wrong answer!", "Oh! You made it! Here's a hint!: In room number 1 the best door is 4 * x = 8"]
+riddle3_answer = ["Wrong answer!", "Oh! you made it! Here's a hint : in room number 2 the best door is the first prime number","Wrong answer!","Wrong answer!"]
+riddle4_answer = ['Worng answer!', 'Nice! here is a hint: In room number 3 the number of door sounds like a train horn!', 'Worng answer', 'Worng answer'] 
+answer_list = [riddle1_answer, riddle2_answer,riddle3_answer, riddle4_answer]
+
 
 
 screen.addshape('door1.gif')
@@ -70,8 +50,12 @@ screen.addshape('door4.gif')
 screen.addshape('door5.gif')
 screen.addshape('door6.gif')
 screen.addshape('door7.gif')
-
-door_shapes = ['door1.gif', 'door2.gif', 'door3.gif', 'door4.gif', 'door5.gif', 'door6.gif', 'door7.gif']
+screen.addshape('door2a(1).gif')
+#screen.addshape('noam.gif')
+#screen.addshape('mona.gif')
+#screen.addshape('judeh.gif')
+#screen.addshape('maayan.gif')
+door_shapes = ['door1.gif', 'door2.gif', 'door3.gif', 'door4.gif', 'door5.gif', 'door6.gif', 'door7.gif', 'door2a(1).gif']
 
 
 door1 = turtle.clone()
@@ -96,119 +80,214 @@ riddleT3.penup()
 riddleT4.penup()
 riddleHL.penup()
 
+riddleHL.hideturtle()
+
+
+
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 
 def ask_riddle():
+    global riddle1_asked, riddle2_asked, riddle3_asked, riddle4_asked, \
+        count_riddle
 
     door1.hideturtle()
     door2.hideturtle()
     door3.hideturtle()
 
-    riddle_list=["How many trees are cut down per year for toilet paper?","how many sea creaturs die due to plastic polution each year?","how old are the world's oldest trees?","how many plastic water buttles used in year??"]
-    global count_riddle
+    if count_riddle >= 4:
+        draw_doors()
 
-    riddleHL.goto(0,250)
-    riddleT1.goto(-100, 100)
-    riddleT2.goto(100, 100)
-    riddleT3.goto(100, -100)
-    riddleT4.goto(-100, -100)
+    if count_riddle == 0 and not riddle1_asked:
+        door1.hideturtle()
+        door2.hideturtle()
+        door3.hideturtle()
 
-    riddleHL.write(riddle_list[count_riddle], move = True, align = 'center', font=("David",20,"normal"))
-    riddleT1.write('2,000', move = True, align = 'center', font=("David",30,"normal"))
-    riddleT2.write('12,000', move = True, align = 'center', font=("David",30,"normal"))
-    riddleT3.write('27,000', move = True, align = 'center', font=("David",30,"normal"))
-    riddleT4.write('120,000', move = True, align = 'center', font=("David",30,"normal"))
+        riddle_list = \
+            ['How many trees are cut down per year for toilet paper?',
+             'how many sea creaturs die due to plastic polution each year?'
+             , "how old are the world's oldest trees?",
+             'how many plastic water buttles used in year??']
 
-    riddleT1.goto(-120, 100)
-    riddleT2.goto(80, 100)
-    riddleT3.goto(80, -100)
-    riddleT4.goto(-120, -100)
-
-    riddleT1.onclick(riddle_answer1)
-    riddleT2.onclick(riddle_answer2)
-    riddleT3.onclick(riddle_answer3)
-    riddleT4.onclick(riddle_answer4)
-
-    
-
-    if count_riddle == 2:
-        riddleHL.goto(0,250)
+        riddleHL.goto(0, 250)
         riddleT1.goto(-100, 100)
         riddleT2.goto(100, 100)
         riddleT3.goto(100, -100)
         riddleT4.goto(-100, -100)
 
-        riddleHL.write('how many sea creaturs die due to plastic polution each year?', move = True, align = 'center', font=("David",20,"normal"))
-        riddleT1.write('100,000', move = True, align = 'center', font=("David",30,"normal"))
-        riddleT2.write('500,000', move = True, align = 'center', font=("David",30,"normal"))
-        riddleT3.write('750,000', move = True, align = 'center', font=("David",30,"normal"))
-        riddleT4.write('1,000,000', move = True, align = 'center', font=("David",30,"normal"))
+        riddleHL.write(riddle_list[count_riddle], move=True,
+                       align='center', font=('David', 20, 'normal'))
+        riddleT1.write('2,000', move=True, align='center', font=('David'
+                       , 30, 'normal'))
+        riddleT2.write('12,000', move=True, align='center',
+                       font=('David', 30, 'normal'))
+        riddleT3.write('27,000', move=True, align='center',
+                       font=('David', 30, 'normal'))
+        riddleT4.write('120,000', move=True, align='center',
+                       font=('David', 30, 'normal'))
 
-        riddleT1.goto(-120, 100)
-        riddleT2.goto(80, 100)
-        riddleT3.goto(80, -100)
-        riddleT4.goto(-120, -100)
+        riddleT1.showturtle()
+        riddleT2.showturtle()
+        riddleT3.showturtle()
+        riddleT4.showturtle()
+
+        riddleT1.shape('square')
+        riddleT2.shape('square')
+        riddleT3.shape('square')
+        riddleT4.shape('square')
+
+        riddleT1.goto(-100, 100)
+        riddleT2.goto(110, 100)
+        riddleT3.goto(110, -100)
+        riddleT4.goto(-70, -100)
 
         riddleT1.onclick(riddle_answer1)
         riddleT2.onclick(riddle_answer2)
         riddleT3.onclick(riddle_answer3)
         riddleT4.onclick(riddle_answer4)
+
+        riddle1_asked = True
+
+    if count_riddle == 1 and not riddle2_asked:
+        door1.hideturtle()
+        door2.hideturtle()
+        door3.hideturtle()
+
+        riddleT1.showturtle()
+        riddleT2.showturtle()
+        riddleT3.showturtle()
+        riddleT4.showturtle()
+
+        riddleHL.goto(0, 250)
+        riddleT1.goto(-100, 100)
+        riddleT2.goto(100, 100)
+        riddleT3.goto(100, -100)
+        riddleT4.goto(-100, -100)
+
+        riddleHL.write('how many sea creaturs die due to plastic polution each year?'
+                       , move=True, align='center', font=('David', 20,
+                       'normal'))
+        riddleT1.write('100,000', move=True, align='center',
+                       font=('David', 30, 'normal'))
+        riddleT2.write('500,000', move=True, align='center',
+                       font=('David', 30, 'normal'))
+        riddleT3.write('750,000', move=True, align='center',
+                       font=('David', 30, 'normal'))
+        riddleT4.write('1,000,000', move=True, align='center',
+                       font=('David', 30, 'normal'))
+
+        riddleT1.onclick(riddle_answer1)
+        riddleT2.onclick(riddle_answer2)
+        riddleT3.onclick(riddle_answer3)
+        riddleT4.onclick(riddle_answer4)
+        riddle2_asked = True
+
+    if count_riddle == 2 and not riddle3_asked:
+        door1.hideturtle()
+        door2.hideturtle()
+        door3.hideturtle()
+
+        riddle_list = \
+            ['How many trees are cut down per year for toilet paper?',
+             'how many sea creaturs die due to plastic polution each year?'
+             , "how old are the world's oldest trees?",
+             'how many plastic water buttles used in year??']
+
+        riddleHL.goto(0, 250)
+        riddleT1.goto(-100, 100)
+        riddleT2.goto(100, 100)
+        riddleT3.goto(100, -100)
+        riddleT4.goto(-100, -100)
+
+        riddleHL.write(riddle_list[count_riddle], move=True,
+                       align='center', font=('David', 20, 'normal'))
+        riddleT1.write('3,000', move=True, align='center', font=('David'
+                       , 30, 'normal'))
+        riddleT2.write('4,600', move=True, align='center', font=('David'
+                       , 30, 'normal'))
+        riddleT3.write('7,200', move=True, align='center', font=('David'
+                       , 30, 'normal'))
+        riddleT4.write('20,010', move=True, align='center',
+                       font=('David', 30, 'normal'))
+
+        riddleT1.showturtle()
+        riddleT2.showturtle()
+        riddleT3.showturtle()
+        riddleT4.showturtle()
+
+        riddleT1.shape('square')
+        riddleT2.shape('square')
+        riddleT3.shape('square')
+        riddleT4.shape('square')
+
+        riddleT1.goto(-30, 120)
+        riddleT2.goto(190, 120)
+        riddleT3.goto(190, -80)
+        riddleT4.goto(0, -80)
+
+        riddleT1.onclick(riddle_answer1)
+        riddleT2.onclick(riddle_answer2)
+        riddleT3.onclick(riddle_answer3)
+        riddleT4.onclick(riddle_answer4)
+
+        riddle3_asked = True
+
+    if count_riddle == 3 and not riddle4_asked:
+        door1.hideturtle()
+        door2.hideturtle()
+        door3.hideturtle()
+
+        riddle_list = \
+            ['How many trees are cut down per year for toilet paper?',
+             'how many sea creaturs die due to plastic polution each year?'
+             , "how old are the world's oldest trees?",
+             'how many plastic water buttles used in year??']
+
+        riddleHL.goto(0, 250)
+        riddleT1.goto(-100, 100)
+        riddleT2.goto(100, 100)
+        riddleT3.goto(100, -100)
+        riddleT4.goto(-100, -100)
+
+        riddleHL.write(riddle_list[count_riddle], move=True,
+                       align='center', font=('David', 20, 'normal'))
+        riddleT1.write('50 billion', move=True, align='center',
+                       font=('David', 30, 'normal'))
+        riddleT2.write('20 billion', move=True, align='center',
+                       font=('David', 30, 'normal'))
+        riddleT3.write('1.6 billion', move=True, align='center',
+                       font=('David', 30, 'normal'))
+        riddleT4.write('57 million', move=True, align='center',
+                       font=('David', 30, 'normal'))
+
+        riddleT1.showturtle()
+        riddleT2.showturtle()
+        riddleT3.showturtle()
+        riddleT4.showturtle()
+
+        riddleT1.shape('square')
+        riddleT2.shape('square')
+        riddleT3.shape('square')
+        riddleT4.shape('square')
+
+        riddleT1.goto(-30, 120)
+        riddleT2.goto(190, 120)
+        riddleT3.goto(190, -80)
+        riddleT4.goto(0, -80)
+
+        riddleT1.onclick(riddle_answer1)
+        riddleT2.onclick(riddle_answer2)
+        riddleT3.onclick(riddle_answer3)
+        riddleT4.onclick(riddle_answer4)
+
+        riddle4_asked = True
+
     
 
-        
-         
-    '''
-    
-
-    if count_riddle = 3:
-
-    if count_riddle = 4:
-    '''
 
 
-'''
 
-def riddle1():
-    
-    
-
-    print("How many trees are cut down per year for toilet paper?")
-    print(" 1 = 2000, 2 = 12000, 3 = 27000, 4 = 120000")
-    user_answer = int(input("What number would you like to choose?"))
-    if user_answer == 3:
-        print('HINT: in room 1 the bes
-        t door is 1+1-1+1-1')
-    else:
-        print('wrong! better luck next time')
-    
-def riddle2():
-    print("how many sea creaturs die due to plastic polution each year?")
-    print("1 =100,000, 2 =500,000 , 3=750,000 , 4 =1,000,000")
-    user_answer= int(input("what number would you like to choose?"))
-    if user_answer == 4:
-       print("HINT:in room number 2 the third door is the worst")
-    else:
-print('wrong! better luck next time')
-
-def riddle3():
-    print("how old are the world's oldest trees?")
-    print("1 =3,000, 2 =4,600 , 3=7,200 , 4 =12,050")
-    user_answer= int(input("what number would you like to choose?"))
-    if user_answer == 2:
-       print("HINT:In room number 3 the third door isnt the best choice")
-    else:
-        print('wrong! better luck next time')
-
-def riddle4():
-    print("how many plastic water bottles used in year??")
-    print("1 =50 billion,  2 =20 billion , 3=billion , 4 =1,000,000")
-    user_answer= int(input("what number would you like to choose?"))
-    if user_answer == 1:
-        print("HINT:In room number 4 doors 2997/999 and 1000-999")
-    else:
-        print('wrong! better luck next time')
-        ###############################################################
-'''
 def chose_door():
     global u_door
     global current_room
@@ -216,12 +295,11 @@ def chose_door():
 
     
     
-    roomT.clear()
-    roomT.penup()
-    roomT.hideturtle()
-    roomT.goto(0,350)
-    roomT.write('Room: ' + str(room_count), move = True, align = 'center', font=("Times New Roman",30,"normal"))
-    
+    turtle.clear()
+    turtle.penup()
+    turtle.hideturtle()
+    turtle.goto(0,350)
+    turtle.write('Room: ' + str(room_count), move = True, align = 'center', font=("Times New Roman",30,"normal"))
 
 
     
@@ -258,11 +336,13 @@ def room_1(u_door):
         room_count = 0
         chose_door()
     elif u_door == 2:
-        print('You made it!')
+
+        print('hell yeah! you made it!')
         current_room = room_2
         room_count += 1
         chose_door()
-    elif u_door == 3: 
+    elif u_door == 3:
+
         print('oh no its a trap')
         current_room = room_0
         room_count = 0
@@ -286,7 +366,46 @@ def room_2(u_door):
         current_room = room_0
         room_count = 0
         chose_door()
+
 def room_3(u_door):
+    global current_room, room_count
+    if u_door == 1:
+        print('oh no its a trap')
+        current_room = room_0
+        room_count = 0
+        
+        chose_door()
+    elif u_door == 2:
+        print('You made it to the next room')
+        room_count += 1
+        current_room = room_4
+        chose_door()
+    elif u_door== 3:
+        print(' oh no its a trap')
+        current_room = room_0
+        room_count = 0
+        chose_door()
+
+def room_4(u_door):
+    global current_room, room_count
+    if u_door == 1:
+        print('You did it!')
+        current_room = room_5
+        room_count += 1
+        chose_door()
+    elif u_door == 2:
+        print('oh no its a trap')
+        current_room = room_0
+        room_count = 0
+        chose_door()
+        
+    elif u_door== 3:
+        print(' oh no its a trap')
+        current_room = room_0
+        room_count = 0
+        chose_door()
+
+def room_5(u_door):
     global current_room, room_count
     if u_door == 1:
         print('oh no its a trap')
@@ -294,22 +413,35 @@ def room_3(u_door):
         room_count = 0
         chose_door()
     elif u_door == 2:
-        print('you made it. You have broken the loop!')
+        print('oh no its a trap!')
+        current_room = room_0
+        room_count = 0
+        chose_door()
+        
+    elif u_door== 3:
+        print('You made it to the next room!')
+        current_room = room_6
         room_count += 1
+        chose_door()
+
+def room_6(u_door):
+    global current_room, room_count
+    if u_door == 1:
+        #current_room = room_7
+        room_count += 1
+        print('you did it, you broke the loop!')
         quit()
+    elif u_door == 2:
+        print('oh no its a trap!')
+        current_room = room_0
+        room_count = 0
+        
     elif u_door== 3:
         print(' oh no its a trap')
         current_room = room_0
         room_count = 0
         chose_door()
 
-<<<<<<< HEAD
-      
-'''
-def draw_doors():
-    global u_door
-=======
->>>>>>> 56486057cc3a1334561ab9fd77a63beaee27bed3
 
 def draw_doors():
     global u_door, screen
@@ -320,6 +452,16 @@ def draw_doors():
     riddleT3.clear()
     riddleT4.clear()
     riddleHL.clear()
+
+    riddleT1.hideturtle()
+    riddleT2.hideturtle()
+    riddleT3.hideturtle()
+    riddleT4.hideturtle()
+    riddleHL.hideturtle()
+
+    door1.showturtle()
+    door2.showturtle()
+    door3.showturtle()
        
     
     door1.penup()
@@ -338,6 +480,8 @@ def draw_doors():
     door2.shape(random.choice(door_shapes))
     
     door3.shape(random.choice(door_shapes))
+
+    
 
     door1.showturtle()
     door2.showturtle()
@@ -364,52 +508,43 @@ def enter_door():
     
 
 
-    
-     
-
-    print()
-
-
 def fun_door1(x, y):
-    print('clicked door 1!')
-    global u_door, door_clicked
+    global u_door
     u_door = 1
-    door_clicked = True
     enter_door()
 def fun_door2(x, y):
-    global u_door, door_clicked
+    global u_door
     u_door = 2
-    door_clicked = True
     enter_door()
 def fun_door3(x, y):
-    global u_door, door_clicked
+    global u_door
     u_door = 3
-<<<<<<< HEAD
-'''              
-                     
-                                          
-                     
-riddle1()                    
-chose_door(room_0)
-=======
-    door_clicked = True
     enter_door()
 
 
 def riddle_answer1(x,y):
-    print('oh no wrong answer')
+    global count_riddle
+    print(answer_list[count_riddle][0])
+    count_riddle += 1
     draw_doors()
 
 def riddle_answer2(x,y):
-    print('oh no wrong answer')
+    global count_riddle
+    print(answer_list[count_riddle][1])
+    count_riddle += 1
     draw_doors()
 
 def riddle_answer3(x,y):
-    print('HINT: in room number 1 the right door is x/2 = 4')
+    global count_riddle
+    print(answer_list[count_riddle][2])
+    count_riddle += 1
     draw_doors()
+    
 
 def riddle_answer4(x,y):
-    print('oh no wrong answer')
+    global count_riddle
+    print(answer_list[count_riddle][3])
+    count_riddle += 1
     draw_doors()
              
 current_room = room_0
@@ -421,5 +556,4 @@ chose_door()
 #door3.onclick(fun_door3)
 turtle.mainloop()
 
->>>>>>> 56486057cc3a1334561ab9fd77a63beaee27bed3
 
