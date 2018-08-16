@@ -1,4 +1,5 @@
 
+
 import turtle
 import time
 import random
@@ -100,7 +101,7 @@ def ask_riddle():
     riddleT3.onclick(riddle_answer3)
     riddleT4.onclick(riddle_answer4)
 
-    s
+    
 
     if count_riddle == 2:
         riddleHL.goto(0,250)
